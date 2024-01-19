@@ -9,6 +9,23 @@ import java.util.ArrayList;
 @Controller
 public class SpaDayController {
 
+//    @GetMapping
+//    public String displayClientForm (Model model) {
+//        return "serviceSelection";
+//    }
+//
+//
+//    @PostMapping
+//    public String processClientForm(@RequestParam String skintype, @RequestParam String manipedi, Model model) {
+//        Client newClient = new Client(skintype, manipedi);
+//        newClient.setAppropriateFacials(skintype);
+//        model.addAttribute("client" , newClient);
+//        return "menu";
+//    }
+
+
+
+
     public boolean checkSkinType(String skinType, String facialType) {
         if (skinType.equals("oily")) {
             return facialType.equals("Microdermabrasion") || facialType.equals("Rejuvenating");
@@ -63,6 +80,13 @@ public class SpaDayController {
             }
         }
 
+
+        model.addAttribute("name" , name);
+        model.addAttribute("skintype", skintype);
+        model.addAttribute("facials", facials);
+        model.addAttribute("appropriateFacials", appropriateFacials);
+        model.addAttribute("manipedi", manipedi);
         return "menu";
+
     }
 }
