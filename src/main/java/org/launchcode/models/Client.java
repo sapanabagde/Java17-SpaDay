@@ -16,6 +16,7 @@ public class Client {
         public Client(String skinType, String nailService, String name) {
             this.skinType = skinType;
             this.nailService = nailService;
+
         }
 
         public String getSkinType() {

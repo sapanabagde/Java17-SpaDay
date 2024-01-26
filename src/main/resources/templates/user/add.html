@@ -2,46 +2,49 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-<!--    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />-->
-<!--    <title>Sign Up</title>-->
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Sign Up</title>
 </head>
 <body>
 
-<!--<form method = 'post' th:action="@{/user}">-->
-    <form method="post" action="/user">
-        <p th:text = "${error}" th:if="${error != null}" style="color:red" ></p>
+<form method = 'post' th:action="@{/user}">
+  <!--  <form method="post" action="/user">-->
+    <!--<p th:text = "${error}" th:if="${error != null}" style="color:red" ></p>-->
+
+
 
     <label>
         Username:
         <input th:field="${user.username}" th:value="${username}">
     </label>
-        <p style="color:red" th:errors="${user.username}"></p>
-        <br>
+
+        <!--<p style="color:red" th:errors="${user.username}"></p>
+        <br>-->
 
     <label>
         Email:
         <input th:field="${user.email}" id="email" th:value="${email}">
     </label>
-        <p style="color:red" th:errors="${user.email}"></p>
-        <br>
+       <!-- <p style="color:red" th:errors="${user.email}"></p>
+        <br>-->
 
     <label>
         Password:
         <input th:field="${user.password}" id="password">
     </label>
-        <p style="color:red" th:errors="${user.password}"></p>
-        <br>
+       <!-- <p style="color:red" th:errors="${user.password}"></p>
+        <br>-->
 
     <label>
         VerifyPassword:
         <input th:field="${user.verify}" id="verify">
     </label>
-        <p style="color:red" th:errors="${user.verify}"></p>
-        <br>
+       <!-- <p style="color:red" th:errors="${user.verify}"></p>
+        <br>-->
 
     <p th:text="${error}"></p>
 
-    <input type = "submit" value = "SignUp">
+    <input type = "submit" value = "Sign Up">
 
 </form>
 

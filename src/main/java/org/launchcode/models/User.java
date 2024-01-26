@@ -1,34 +1,40 @@
 package org.launchcode.models;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class User {
 
     @NotBlank(message = "required")
     @Size(min = 5,max = 15)
     private String username;
+
+    @NotBlank(message = "email is optional")
     @Email
     private String email;
-    @NotBlank(message = "required")
+
+    @NotNull(message = "Passwords do not match")
     @Min(6)
     private String password;
-    @NotBlank(message = "required")
-    private String verify;
 
-// constructors for field
-    public User(String username, String email, String password, String verify) {
+    @NotNull(message = "required")
+    private String verifyPassword;
+
+    // creating constructor with empty body, used to assign default value in field of class
+
+    public User() {
+
+    }
+
+
+    // constructors for field
+    public User(String username, String email, String password, String verifyPassword) {
         this();
         this.username = username;
         this.email = email;
         this.password = password;
-        this.verify = verify;
+        this.verifyPassword = verifyPassword;
     }
 
-    // creating constructor with empty body, used to assign default value in field of class
-    public User() {}
 
  //Getters and Setters
 
@@ -52,7 +58,19 @@ public class User {
         return password;
     }
 
+    public String getVerifyPassword() {
+        return verifyPassword;
+    }
+
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
+    }
+
     public void setPassword(String password) {
         this.password = password;
+
+
+
+
     }
 }
